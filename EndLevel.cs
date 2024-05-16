@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    [SerializeField]
-    private int nextLevel;
+    public int LevelNumber;
     // Start is called before the first frame update
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(nextLevel);
+            SceneManager.LoadScene(LevelNumber);
         }
     }
 }
